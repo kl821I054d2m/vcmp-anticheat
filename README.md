@@ -17,7 +17,7 @@ gameplay. Please do let me know if I am wrong though!
 1. Click [here](https://github.com/sfwidde/vcmp-anticheat/releases), choose a
 plugin based on your needs, then download it.
 2. Head to your server's directory, then:
-	- Paste the plugin you just downloaded to your `plugins` directory.
+	- Paste the plugin you just downloaded to the `plugins` directory.
 	- Load the plugin by appending its name to the `plugins` field in
 	`server.cfg`.
 	- Create a new file named `anticheat.cfg`, in which we will store
@@ -26,40 +26,41 @@ plugin based on your needs, then download it.
 ## `anticheat.cfg` configuration file
 You can customize plugin's behaviour by messing with the following settings:
 - `message_colour`
-	- **Description:** Hexadecimal RRGGBB colour used when sending a message to
-	the chatbox i.e.: on player kick.
+	- **Description:** hexadecimal RRGGBB colour the plugin uses when sending a
+	message to the chatbox i.e.: on player kick.
 	- **Optional?**
 	- [x] Yes: defaults to `0B5FA5`.
 	- [ ] No.
 - `check_interval`
-	- **Description:** Milliseconds interval between each player check. For
-	example: if set to 2500, and last check was made just now for a certain
-	player, server will now have to wait 2.5 seconds before issuing another
-	check on the same player again and determine if a module list change was
-	made in the meantime. Its value must be between 1000 and 600000.
+	- **Description:** milliseconds interval between each player check. For
+	example: if set to 2500, and a certain player has just been checked, the
+	server will now have to wait 2.5 seconds before issuing another check on
+	the same player again and determine if a module list change was made in the
+	meantime.
+	- **Acceptable values:** between 1000 and 600000.
 	- **Optional?**
 	- [x] Yes: defaults to 5000.
 	- [ ] No.
 - `max_check_refusals`
-	- **Description:** Maximum amount of check refusals the server can take
+	- **Description:** maximum amount of check refusals the server can take
 	from a player before it decides to kick them out for not providing their
 	module list. The counter will likely to increase only if their game is
 	paused. The time it will take for a player to get kicked will highly depend
-	on the setting `check_interval` (exactly
-	`check_interval * max_check_refusals / 1000` seconds). Its value must be
-	between 0 and 1000; setting this to 0 disables this feature completely:
-	useful for when your script already handles player kick on pause. It is
-	highly recommended that this setting remains enabled otherwise.
+	on the setting `check_interval`.
+	- **Acceptable values:**  between 0 and 1000. Setting this to 0 disables
+	this feature completely: useful for when your script already handles player
+	kick on pause. It is highly recommended that this setting remains enabled
+	otherwise.
 	- **Optional?**
 	- [x] Yes: defaults to 100.
 	- [ ] No.
 - `expected_client_size`
-	- **Description:** Hexadecimal value representing the size a player's
-	client must have in order to play on the server. Its value must be at
-	least 1. To find out what size to expect, it is as easy as setting this
-	setting's value to any value you want, join your server and, after getting
-	kicked, check the console for a fully-detailed reason of the kick which
-	includes your client's size as well.
+	- **Description:** hexadecimal value representing the size a player's
+	client must have in order to play on the server. To find out what size to
+	expect, it is as easy as setting this setting's value to any value you
+	want, join your server and, after getting kicked, check the console for a
+	fully-detailed reason of the kick which includes your client size as well.
+	- **Acceptable values:** at least 1.
 	- **Optional?**
 	- [ ] Yes.
 	- [x] No.
